@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acessibilidade Digital - Dislexia e TDAH</title>
+  <link rel="stylesheet" href="..\CSS\style.css">
+</head>
+<body>
+
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <h1>Atividade de Acessibilidade</h1>
+      <p>Desenvolvimento por Arthur Tavaroni & Ramon Moreira</p>
+      <nav class="site-nav">
+        <a href="#conceito">Conceito</a>
+        <a href="#painel">Painel de Recursos</a>
+        <a href="#formulario">Contato & Banco</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="container">
+    <section id="conceito" class="content-card">
+      <h2>Acessibilidade para Dislexia e TDAH</h2>
+      <p class="lead">
+        A acessibilidade digital para neurodivergentes foca na redução de barreiras cognitivas,
+        melhoria da legibilidade tipográfica e controle sobre estímulos visuais.
+      </p>
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Dislexia</h3>
+          <p>Transtorno de aprendizagem que afeta a leitura e a escrita. Exige fontes legíveis, bom espaçamento e suporte de áudio.</p>
+        </div>
+        <div class="info-box">
+          <h3>TDAH</h3>
+          <p>Transtorno de Déficit de Atenção com Hiperatividade. Exige interfaces limpas, sem distrações visuais e com guias de foco.</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="painel" class="a11y-panel" aria-live="polite" hidden>
+      <div class="a11y-panel-header">
+        <h2>Painel de Acessibilidade</h2>
+        <button type="button" class="a11y-close" aria-label="Fechar painel">×</button>
+      </div>
+      <p>Ative ou desative os recursos de leitura e foco de forma instantânea.</p>
+
+      <div class="controls-grid">
+        <button id="btn-recurso-1" class="btn-feature" type="button" onclick="alternarRecurso('guiaLeitura')">
+          1. Régua de Leitura
+        </button>
+        <button id="btn-recurso-2" class="btn-feature" type="button" onclick="alternarRecurso('fonteDislexia')">
+          2. Fonte para Dislexia
+        </button>
+        <button id="btn-recurso-3" class="btn-feature" type="button" onclick="alternarRecurso('modoFoco')">
+          3. Modo Foco TDAH
+        </button>
+        <button id="btn-recurso-4" class="btn-feature" type="button" onclick="alternarRecurso('espacamento')">
+          4. Aumentar Espaçamento
+        </button>
+        <button id="btn-recurso-5" class="btn-feature" type="button" onclick="alternarRecurso('confortoVisual')">
+          5. Conforto Visual
+        </button>
+        <button id="btn-recurso-6" class="btn-feature" type="button" onclick="alternarRecurso('leitorVoz')">
+          6. Leitor de Voz
+        </button>
+        <button id="btn-recurso-7" class="btn-feature" type="button" onclick="alternarRecurso('semAnimacoes')">
+          7. Sem Animações
+        </button>
+        <button id="btn-recurso-8" class="btn-feature" type="button" onclick="alternarRecurso('leituraBionica')">
+          8. Leitura Biónica
+        </button>
+      </div>
+
+      <button id="btn-reset" type="button" onclick="restaurarPadrao()">Restaurar Configurações Originais</button>
+    </div>
+
+    <button id="a11y-toggle" class="a11y-floating-toggle" type="button" aria-expanded="false" aria-controls="painel">
+      A11y
+    </button>
+
+    <div id="regua-leitura" class="regua-overlay" aria-hidden="true"></div>
+
+    <section id="formulario" class="content-card">
+      <h2>Formulário de Avaliação & Feedback</h2>
+      <form id="form-contato">
+        <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" required minlength="3">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail de Contato:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="perfil">Perfil:</label>
+          <select id="perfil" name="perfil" required>
+            <option value="">Selecione...</option>
+            <option value="Dislexia">Dislexia</option>
+            <option value="TDAH">TDAH</option>
+            <option value="Ambos">Ambos (Dislexia e TDAH)</option>
+            <option value="Estudante/Desenvolvedor">Estudante / Desenvolvedor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="recurso_favorito">Recurso Favorito:</label>
+          <select id="recurso_favorito" name="recurso_favorito" required>
+            <option value="">Selecione...</option>
+            <option value="Régua de Leitura">1. Régua de Leitura</option>
+            <option value="Fonte Dislexia">2. Fonte para Dislexia</option>
+            <option value="Modo Foco">3. Modo Foco TDAH</option>
+            <option value="Espaçamento">4. Aumentar Espaçamento</option>
+            <option value="Conforto Visual">5. Conforto Visual</option>
+            <option value="Leitor de Voz">6. Leitor de Voz</option>
+            <option value="Sem Animações">7. Sem Animações</option>
+            <option value="Leitura Biónica">8. Leitura Biónica</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem / Sugestão:</label>
+          <textarea id="mensagem" name="mensagem" rows="4" required minlength="10"></textarea>
+        </div>
+
+        <button type="submit" id="btn-enviar">Gravar Dados no Banco</button>
+      </form>
+
+      <div id="alerta-feedback" class="feedback-alert"></div>
+
+      <div class="tabela-container">
+        <h3>Registros Armazenados no Banco de Dados</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Perfil</th>
+              <th>Recurso Favorito</th>
+              <th>Mensagem</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-dados"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Projeto de Acessibilidade Digital — SENAI Front-end II</p>
+  </footer>
+
+  <script src="../SCRIPT/script.js"></script>
+</body>
+</html>
